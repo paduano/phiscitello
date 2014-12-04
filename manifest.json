@@ -17,7 +17,7 @@
   "content_scripts" : [
     {
       "matches":["http://*/*","https://*/*"],
-      "js":["jquery-2.1.1.js","underscore.js", "backgroundScript.js", "interceptForm.js", "checkPassword.js", "hash.js"]
+      "js":["jquery-2.1.1.js","underscore.js", "backgroundScript.js", "interceptForm.js", "checkPassword.js", "sha256.js"]
 
     }
   ]
