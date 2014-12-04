@@ -15,6 +15,8 @@ function interceptAllForms(){
                     alert("form blocked password=" + password);
                 }
             });
+        } else {
+            form.submit();
         }
 
     });
@@ -27,4 +29,6 @@ function hasPasswordField(form) {
 function getPassword(form) {
     return $(form).find("input:password").val();
 }
+
+
 
