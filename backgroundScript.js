@@ -1,6 +1,6 @@
 $( document ).ready(function() {
-    var pathname = window.location.hostname;
-    console.log("phiscitello loaded on " + pathname);
+
+    console.log("phiscitello loaded. Now you are safe and sound!");
 
     interceptAllForms();
 
