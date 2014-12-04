@@ -12,7 +12,7 @@ function interceptAllForms(){
                 if(approved){
                     form.submit();
                 } else {
-                    alert("form blocked password=" + password);
+                    alert("form blocked password");
                 }
             });
         } else {
