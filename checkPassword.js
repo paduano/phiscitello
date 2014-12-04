@@ -1,7 +1,14 @@
 function checkPassword(host, password, callback) {
 
     // TODO: hashare password
-    var hash = myHash(password);
+    var bytes = CryptoJS.SHA256(password);
+
+    var hash = "";
+
+    bytes.words.forEach(function(word) {
+        hash += word;
+    });
+
 
 
     chrome.storage.sync.get(hash, function(returnedValue) {
@@ -11,7 +18,7 @@ function checkPassword(host, password, callback) {
             obj[hash] = [host];
 
             chrome.storage.sync.set(obj, function() {
-                console.log("Pasword not found. Adding it...");
+                console.log("Password " + hash + " not found. Adding it...");
                 callback(true);
             });
         }
@@ -19,11 +26,11 @@ function checkPassword(host, password, callback) {
             var hosts = returnedValue[hash];
 
             if(hosts.indexOf(host) != -1) {
-                console.log("Password already used in " + host);
+                console.log("Password" + hash + " already used in " + host);
                 callback(true);
             }
             else {
-                console.log("Password never used in " + host);
+                console.log("Password " + hash + " never used in " + host);
                 callback(false);
             }
         }
