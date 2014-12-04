@@ -1,3 +1,3 @@
-function hash(password) {
+function myHash(password) {
     return password
 };
