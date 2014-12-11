@@ -1,6 +1,6 @@
-var whitelist = ["youtube.com",
-    "yahoo.com",
-    "francescopaduano.com"
+var whitelist = ["www.youtube.com",
+    "www.yahoo.com",
+    "www.francescopaduano.com"
 ];
 
-var blacklist = ["facebok.com"];
+var blacklist = ["www.facebok.com"];
