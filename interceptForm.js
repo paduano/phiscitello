@@ -14,16 +14,24 @@ function interceptAllForms(){
                 if(status==='allowed'){
                     form.submit();
                 } else if(status==='forbidden'){
-                    alert("form blocked password");
-                } else if(status==='notice'){
-                    var r = confirm("Are you sure?");
+                    alert("Suspected website. The submission of personal data is forbidden");
+                } else if(status==='notice-password'){
+                    var r = confirm("You are trying to submit the same password to a not trusted website. Do you want to proceed?");
                     if (r == true) {
                         storeData(host, password);
                         form.submit();
                     } else {
                         //ignore
                     }
+                }  else if(status==='notice-suspected'){
+                var r = confirm("You are trying to submit personal data to a not trusted website. Do you want to proceed?");
+                if (r == true) {
+                    storeData(host, password);
+                    form.submit();
+                } else {
+                    //ignore
                 }
+            }
             });
         } else {
             form.submit();
