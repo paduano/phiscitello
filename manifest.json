@@ -23,6 +23,6 @@
   ],
 
   "web_accessible_resources": [
-    "safelists.json"
+    "ajaxIntercept.js","jquery-2.1.1.js"
   ]
 }
