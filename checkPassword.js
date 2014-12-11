@@ -13,7 +13,7 @@ function checkPassword(host, password, callback) {
             if(_.isEmpty(returnedValue)) {
 
                 // If host in blacklist
-                if(blacklist.indexOf(host) != -1 || isSuspected(host, hosts)) {
+                if(blacklist.indexOf(host) != -1) {
                     if(policy === "strict") {
                         callback("forbidden");
                     }
@@ -159,4 +159,4 @@ var LevenshteinDistance = function(a,b) {
     }
 
     return matrix[b.length][a.length];
-}
+};
