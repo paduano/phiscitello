@@ -1,7 +1,0 @@
-{
-  "whitelist": ["youtube.com",
-    "yahoo.com",
-    "francescopaduano.com"
-  ],
-  "blacklist": ["facebok.com"]
-}

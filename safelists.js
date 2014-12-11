@@ -3,4 +3,4 @@ var whitelist = ["www.youtube.com",
     "www.francescopaduano.com"
 ];
 
-var blacklist = ["www.facebok.com"];
+var blacklist = ["www.facebook.com"];
