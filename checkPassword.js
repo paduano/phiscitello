@@ -18,7 +18,7 @@ function checkPassword(host, password, callback) {
                         callback("forbidden");
                     }
                     else if(policy === "loose") {
-                        callback("notice");
+                        callback("notice-suspected");
                     }
                 }
 
@@ -46,7 +46,7 @@ function checkPassword(host, password, callback) {
                 // If host in whitelist
                 else if(whitelist.indexOf(host) != -1){
                     if(policy === "strict") {
-                        callback("notice");
+                        callback("notice-password");
                     }
                     else if(policy == "loose") {
                         callback("allowed");
@@ -58,7 +58,7 @@ function checkPassword(host, password, callback) {
                         callback("forbidden");
                     }
                     else if(policy == "loose") {
-                        callback("notice");
+                        callback("notice-password");
                     }
                 }
 
