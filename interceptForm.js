@@ -10,11 +10,18 @@ function interceptAllForms(){
 
         if(hasPasswordField(form)){
             var password = getPassword(form);
-            checkPassword(host, password, function(approved){
-                if(approved){
+            checkPassword(host, password, function(status){
+                if(status==='allowed'){
                     form.submit();
-                } else {
+                } else if(status==='forbidden'){
                     alert("form blocked password");
+                } else if(status==='notice'){
+                    var r = confirm("Are you sure?");
+                    if (r == true) {
+                        storeData(host, password);
+                    } else {
+                        storeData(host, password);
+                    }
                 }
             });
         } else {
@@ -32,5 +39,38 @@ function getPassword(form) {
     return $(form).find("input:password").val();
 }
 
+function blockAjax(){
 
+
+
+    var s = document.createElement('script');
+    s.src = chrome.extension.getURL('ajaxIntercept.js');
+    s.onload = function() {
+        this.parentNode.removeChild(this);
+    };
+    (document.head||document.documentElement).appendChild(s);
+
+
+    var jq = document.createElement('script');
+    jq.src = chrome.extension.getURL('jquery-2.1.1.js');
+    jq.onload = function() {
+        this.parentNode.removeChild(this);
+    };
+    (document.head||document.documentElement).appendChild(jq);
+
+
+
+    (function(open) {
+        XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
+            console.log('ajax');
+            open.call(this, method, url, async, user, pass);
+        };
+    })(XMLHttpRequest.prototype.open);
+    /**$.ajaxSetup({
+        beforeSend: function(val) {
+            console.log('ajax');
+            return true;
+        }
+    });**/
+}
 
