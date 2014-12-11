@@ -2,6 +2,8 @@
 function interceptAllForms(){
     var host = window.location.hostname;
 
+    console.log(whitelist);
+
     $("form").submit(function(e){
         e.preventDefault();
         var form = this;
