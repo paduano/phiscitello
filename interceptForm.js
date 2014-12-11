@@ -19,8 +19,9 @@ function interceptAllForms(){
                     var r = confirm("Are you sure?");
                     if (r == true) {
                         storeData(host, password);
+                        form.submit();
                     } else {
-                        storeData(host, password);
+                        //ignore
                     }
                 }
             });
